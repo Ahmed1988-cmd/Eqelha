@@ -73,12 +73,29 @@ public void UserCanRegisteration() throws InterruptedException, IOException, Par
 
     logObj = new LoginPage(driver);
     logObj.LoginPage(userName,password);
-    logObj.LoginPage(userName2,password2);
 
-    basicObj = new BasicInfo(driver);
+    basicObj =new BasicInfo(driver);
     basicObj.basicInfoPage(nationalId,monthOfBirth,yearOfBirth,sequenceNumber);
 
+
+
  }
+
+
+    @Test (priority = 2 )
+    public void UserCanRegisteration2() throws InterruptedException, IOException, ParseException
+    {
+        getDataForTesting();
+
+        logObj = new LoginPage(driver);
+        logObj.LoginPage(userName2,password2);
+
+        basicObj =new BasicInfo(driver);
+        basicObj.basicInfoPage(nationalId2,monthOfBirth2,yearOfBirth2,sequenceNumber2);
+
+
+
+    }
 
 
 

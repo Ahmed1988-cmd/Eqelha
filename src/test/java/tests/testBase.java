@@ -14,7 +14,7 @@ public class testBase
 
         public static WebDriver driver;
 
-        @BeforeSuite
+        @BeforeMethod
         @Parameters({"browser"})
         public void startdriver (@Optional("chrome") String browserName)
         {
@@ -44,7 +44,7 @@ public class testBase
 
         }
 
-        @AfterSuite
+        @AfterMethod
         public void stopdriver()
         {
             driver.quit();

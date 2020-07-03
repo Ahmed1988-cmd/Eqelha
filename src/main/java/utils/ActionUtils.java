@@ -4,13 +4,16 @@ package utils;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ActionUtils {
 
-    public static void clickOnElement(WebDriver driver, WebElement element) {
+
+                                // click on Element
+    public static void clickOnElement(WebDriver driver, WebElement element)
+
+    {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 60);
             //element = wait.until(ExpectedConditions.visibilityOf(element));
@@ -25,11 +28,17 @@ public class ActionUtils {
             System.err.println("Error, Could not find Clickable Element.");
         }
     }
+
+
+                                     // Method For FillElement
     public static void fillElement(WebDriver driver, WebElement element, String text) {
 
-        if (text != null || text.equalsIgnoreCase("")) {
+        if (text != null || text.equalsIgnoreCase(""))
 
-            WebDriverWait wait = new WebDriverWait(driver, 60);
+
+        {
+
+            WebDriverWait wait = new WebDriverWait(driver, 30);
             //element = wait.until(ExpectedConditions.visibilityOf(element));
             try {
                 while (!element.isDisplayed()) {
@@ -46,8 +55,13 @@ public class ActionUtils {
             System.out.println("The entered Text is null or empty.");
         }
     }
-    public static void clickOnElementUsingJavaScript(WebDriver driver, WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, 60);
+
+
+                          //Method for click On Element  UsingJavaScript
+    public static void clickOnElementUsingJavaScript(WebDriver driver, WebElement element)
+
+    {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         try {
             while (!element.isDisplayed()) {
                 element = wait.until(ExpectedConditions.visibilityOf(element));

@@ -4,17 +4,33 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utils.ActionUtils;
 
 public class BasicInfo extends PageBase
 
 {
-    public BasicInfo(WebDriver driver)
+    WebDriver driver;
 
+
+    public BasicInfo(WebDriver driver)
 
     {
         super(driver);
+        this.driver = driver;
+
         Jse = (JavascriptExecutor) driver;
     }
+
+
+    @FindBy(xpath = "//input[@formcontrolname='nationalId']")
+    WebElement NationalIdTextField;
+
+    @FindBy(xpath = "//input[@formcontrolname='monthOfBirth']")
+    WebElement MonthOfBirthTextFiled;
+
+    @FindBy(xpath = "//input[@formcontrolname='yearOfBirth']")
+    WebElement YearOfBirthTextFiled;
+
 
     @FindBy(xpath = "//input[@formcontrolname='sequenceNumber']")
     WebElement SequenceNumberTextFiled;
@@ -31,23 +47,20 @@ public class BasicInfo extends PageBase
     @FindBy(xpath = "//button[@type='submit']")
     WebElement ContinueVehicleButton;
 
-    public void basicInfoPage (String seq) throws InterruptedException
+    public void basicInfoPage(String nationalID, String month, String year, String seq)
 
     {
-        Thread.sleep(2000);
-        FillElement(SequenceNumberTextFiled,seq);
-        Thread.sleep(3000);
-        ClickOn(PolicyEffectiveDate);
-        Thread.sleep(3000);
-        ScrollDown();
-        Thread.sleep(3000);
-        ClickOn(Agree);
-        ClickOn(ContinueButton);
-        Thread.sleep(3000);
-        ScrollDown();
-        ClickOn(ContinueVehicleButton);
 
+        ActionUtils.fillElement(driver,NationalIdTextField,nationalID);
+        ActionUtils.fillElement(driver,MonthOfBirthTextFiled,month);
+        ActionUtils.fillElement(driver,YearOfBirthTextFiled,year);
+        ActionUtils.fillElement(driver,SequenceNumberTextFiled,seq);
+        ActionUtils.clickOnElement(driver,PolicyEffectiveDate);
+        ActionUtils.clickOnElement(driver,ContinueButton);
+        ActionUtils.clickOnElement(driver,Agree);
+        ScrollDown();
+        ActionUtils.clickOnElement(driver,ContinueVehicleButton);
 
-      }
+    }
 
 }

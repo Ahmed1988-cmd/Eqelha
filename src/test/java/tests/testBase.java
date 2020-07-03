@@ -45,7 +45,8 @@ public class testBase
         }
 
         @AfterSuite
-        public void stopdriver() {
+        public void stopdriver()
+        {
             driver.quit();
         }
 

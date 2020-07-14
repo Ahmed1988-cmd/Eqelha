@@ -6,6 +6,7 @@ import org.json.simple.parser.ParseException;
 import org.testng.annotations.Test;
 import pages.BasicInfo;
 import pages.LoginPage;
+import pages.VechileInfoPage;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -13,20 +14,17 @@ public class Registeration extends testBase{
 
     LoginPage logObj;
     BasicInfo basicObj;
+    VechileInfoPage vecObj;
+
 
     private static String userName;
     private static String password;
-    private static String nationalId;
-    private static String monthOfBirth;
-    private static String yearOfBirth;
     private static String sequenceNumber;
+    private static  String vechiclNumber;
 
 
     private static String userName2;
     private static String password2;
-    private static String nationalId2;
-    private static String monthOfBirth2;
-    private static String yearOfBirth2;
     private static String sequenceNumber2;
 
     private static String filePath = "C:\\Users\\ZaZa\\Desktop\\Bawabty2\\src\\test\\java\\data\\testData.json";
@@ -49,18 +47,13 @@ public class Registeration extends testBase{
         // First User
         userName = (String) resultObj.get("userName");
         password = (String) resultObj.get("password");
-        nationalId = (String) resultObj.get("nationalId");
-        monthOfBirth = (String) resultObj.get("monthOfBirth");
-        yearOfBirth = (String) resultObj.get("yearOfBirth");
         sequenceNumber = (String) resultObj.get("sequenceNumber");
+       vechiclNumber = (String) resultObj.get("vechiclNumber");
 
 
         // Secound User
         userName2 = (String) resultObj.get("userName2");
         password2 = (String) resultObj.get("password2");
-        nationalId2 = (String) resultObj.get("nationalId2");
-        monthOfBirth2 = (String) resultObj.get("monthOfBirth2");
-        yearOfBirth2 = (String) resultObj.get("yearOfBirth2");
         sequenceNumber2 = (String) resultObj.get("sequenceNumber2");
 
 
@@ -75,12 +68,13 @@ public void UserCanRegisteration() throws InterruptedException, IOException, Par
     logObj.LoginPage(userName,password);
 
     basicObj =new BasicInfo(driver);
-    basicObj.basicInfoPage(nationalId,monthOfBirth,yearOfBirth,sequenceNumber);
+    basicObj.basicInfoPage(sequenceNumber);
 
+   vecObj = new VechileInfoPage(driver);
+   vecObj.VechileInfoPage(vechiclNumber);
 
 
  }
-
 
     @Test (priority = 2 )
     public void UserCanRegisteration2() throws InterruptedException, IOException, ParseException
@@ -91,12 +85,8 @@ public void UserCanRegisteration() throws InterruptedException, IOException, Par
         logObj.LoginPage(userName2,password2);
 
         basicObj =new BasicInfo(driver);
-        basicObj.basicInfoPage(nationalId2,monthOfBirth2,yearOfBirth2,sequenceNumber2);
-
-
+        basicObj.basicInfoPage(sequenceNumber2);
 
     }
-
-
 
 }

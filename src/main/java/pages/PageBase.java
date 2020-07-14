@@ -36,7 +36,7 @@ public class PageBase
     //Method For ScrollDown
     public void ScrollDown()
     {
-        Jse.executeScript("scrollBy(0,300)");
+        Jse.executeScript("scrollBy(0,600)");
     }
 
     //Method For ScrollUP

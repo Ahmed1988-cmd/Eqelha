@@ -37,31 +37,13 @@ public class LoginPage extends PageBase
 
     public void LoginPage(String mail , String pass ) throws InterruptedException
     {
-//        Thread.sleep(3000);
-//        ClickOn(SignUpHomePage);
+
         ActionUtils.clickOnElement(driver,SignUpHomePage);
-
-//        Thread.sleep(3000);
-//        ClickOn(LoginButton);
         ActionUtils.clickOnElement(driver,LoginButton);
-
-       // Thread.sleep(3000);
-        //FillElement(EmailTextField,mail);
         ActionUtils.fillElement(driver,EmailTextField,mail);
         ActionUtils.fillElement(driver,PasswordTexttField,pass);
-        //FillElement(PasswordTexttField,pass);
-
-//        Thread.sleep(3000);
-//        ClickOn(LoginButton2);
         ActionUtils.clickOnElement(driver,LoginButton2);
-
-        //Thread.sleep(3000);
-        // HomePage GetQoutes
-        //ClickOn(GetQoutes);
         ActionUtils.clickOnElementUsingJavaScript(driver,GetQoutes);
-        Thread.sleep(15000);
-
-
 
     }
 }

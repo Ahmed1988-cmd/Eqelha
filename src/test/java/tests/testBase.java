@@ -14,7 +14,7 @@ public class testBase
 
         public static WebDriver driver;
 
-        @BeforeSuite
+        @BeforeMethod
         @Parameters({"browser"})
         public void startdriver (@Optional("chrome") String browserName)
         {
@@ -39,13 +39,14 @@ public class testBase
 
             }
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(500, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(900, TimeUnit.SECONDS);
             driver.get("https://qc2.bawbty.com/");
 
         }
 
-        @AfterSuite
-        public void stopdriver() {
+        @AfterMethod
+        public void stopdriver()
+        {
             driver.quit();
         }
 

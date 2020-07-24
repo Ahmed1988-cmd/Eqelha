@@ -11,7 +11,9 @@ public class PageBase
 
     public JavascriptExecutor Jse;
 
-//Create Constructor
+
+
+          //Create Constructor
     public PageBase (WebDriver driver)
 
     {
@@ -34,7 +36,7 @@ public class PageBase
     //Method For ScrollDown
     public void ScrollDown()
     {
-        Jse.executeScript("scrollBy(0,300)");
+        Jse.executeScript("scrollBy(0,600)");
     }
 
     //Method For ScrollUP

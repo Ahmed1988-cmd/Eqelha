@@ -1,13 +1,29 @@
 {
 
-  "userName":"iten.mehaya@devexy.com",
-  "password":"Yasmeen42014118@",
-  "sequenceNumber":"372807800",
-  "vechiclNumber":"100000",
+  "UserEmail": "FirstUserr@gmail.com",
+  "FirstNameText": "FirstUser",
+  "lastnameText": "FirstUser",
+  "EmailText": "FirstUser@gmail.com",
+  "PasswordText": "FirstUser",
+  "AddressFirstNameText": "FirstUser",
+  "AddressLastNameText": "FirstUser",
+  "AddressText": "FirstUser",
+  "CityText": "FirstUser",
+  "PostCodeText": "00000",
+  "MobileNumberText": "01001001001",
+
+  "UserEmail2": "SecondUserr@gmail.com",
+  "SecondNameText2": "SecondUser",
+  "lastnameText2": "SecondUser",
+  "EmailText2": "SecoundUser@gmail.com",
+  "PasswordText2": "SecondUser",
+  "AddressSecondNameText2": "SecondUser",
+  "AddressLastNameText2": "SecondUser",
+  "AddressText2": "SecondUser",
+  "CityText2": "SecondUser",
+  "PostCodeText2": "00000",
+  "MobileNumberText2": "01001001001"
 
 
-  "userName2":"Hawam.elrays@devexy.com",
-  "password2":"Yasmeen42014118@",
-  "sequenceNumber2":"7655555555555"
 
 }

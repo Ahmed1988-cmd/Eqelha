@@ -37,14 +37,13 @@ public class VechileInfoPage extends PageBase
     WebElement GetQoutesVehicleButton;
 
 
-    public void VechileInfoPage (String vechile) throws InterruptedException
+    public void VechileInfoPage (String vechile)
 
     {
         boolean result  = ActionUtils.verifyPageOpened(driver,ContinueToVechileInfoPage,60);
        if(result) {
            ScrollDown();
            ActionUtils.clickOnElement(driver, ContinueToVechileInfoPage);
-
            ActionUtils.fillElement(driver, VehicleEstimatedValue, vechile);
            ScrollDown();
            ActionUtils.clickOnElement(driver, GetQoutesVehicleButton);

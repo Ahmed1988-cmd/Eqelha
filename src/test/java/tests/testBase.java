@@ -39,15 +39,15 @@ public class testBase
 
             }
             driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(900, TimeUnit.SECONDS);
-            driver.get("https://qc2.bawbty.com/");
+            driver.manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+            driver.get("http://automationpractice.com/index.php");
 
         }
 
         @AfterMethod
         public void stopdriver()
         {
-            driver.quit();
+            driver.close();
         }
 
 

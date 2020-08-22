@@ -1,33 +1,56 @@
-package tests;
+ package tests;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.testng.annotations.Test;
-import pages.BasicInfo;
+import pages.CreateAccount;
+import pages.GetQuotesPage;
 import pages.LoginPage;
 import pages.VechileInfoPage;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Registeration extends testBase{
+public class Registeration extends testBase
 
-    LoginPage logObj;
-    BasicInfo basicObj;
-    VechileInfoPage vecObj;
+{
 
-
-    private static String userName;
-    private static String password;
-    private static String sequenceNumber;
-    private static  String vechiclNumber;
+     CreateAccount creaAcounttObj;
 
 
-    private static String userName2;
-    private static String password2;
-    private static String sequenceNumber2;
+                                              //First User
+    private static String UserEmail;
+    private static String FirstNameText;
+    private static String lastnameText;
+    private static String EmailText;
+    private static String PasswordText;
+    private static String AddressFirstNameText;
+    private static String AddressLastNameText;
+    private static String AddressText;
+    private static String CityText;
+    private static String PostCodeText;
+    private static String MobileNumberText;
 
-    private static String filePath = "C:\\Users\\Muhamed.Hawam\\Desktop\\bawbty-master\\src\\test\\java\\data\\testData.json";
+
+                                                     //Second User
+
+
+    private static String UserEmail2;
+    private static String SecondNameText2;
+    private static String lastnameText2;
+    private static String EmailText2;
+    private static String PasswordText2;
+    private static String AddressSecondNameText2;
+    private static String AddressLastNameText2;
+    private static String AddressText2;
+    private static String CityText2;
+    private static String PostCodeText2;
+    private static String MobileNumberText2;
+
+
+
+
+    private static String filePath = "C:\\Users\\ZaZa\\Desktop\\Eqelha\\src\\test\\java\\data\\testData.json";
 
     /**
      * this function for reading test data from json file
@@ -44,49 +67,61 @@ public class Registeration extends testBase{
         Object dataObj = jsonParser.parse(reader);
         JSONObject resultObj = (JSONObject) dataObj;
 
-        // First User
-        userName = (String) resultObj.get("userName");
-        password = (String) resultObj.get("password");
-        sequenceNumber = (String) resultObj.get("sequenceNumber");
-       vechiclNumber = (String) resultObj.get("vechiclNumber");
+                                                                          // First User
+        UserEmail = (String) resultObj.get("UserEmail");
+        FirstNameText = (String) resultObj.get("FirstNameText");
+        lastnameText = (String) resultObj.get("lastnameText");
+        EmailText = (String) resultObj.get("EmailText");
+        PasswordText = (String) resultObj.get("PasswordText");
+        AddressFirstNameText = (String) resultObj.get("AddressFirstNameText");
+        AddressLastNameText = (String) resultObj.get("AddressLastNameText");
+        AddressText = (String) resultObj.get("AddressText");
+        CityText = (String) resultObj.get("CityText");
+        PostCodeText = (String) resultObj.get("PostCodeText");
+        MobileNumberText = (String) resultObj.get("MobileNumberText");
 
 
-        // Secound User
-        userName2 = (String) resultObj.get("userName2");
-        password2 = (String) resultObj.get("password2");
-        sequenceNumber2 = (String) resultObj.get("sequenceNumber2");
+
+                                                                           // second user
+        UserEmail2 = (String) resultObj.get("UserEmail2");
+        SecondNameText2 = (String) resultObj.get("SecondNameText2");
+        lastnameText2 = (String) resultObj.get("lastnameText2");
+        EmailText2 = (String) resultObj.get("EmailText2");
+        PasswordText2 = (String) resultObj.get("PasswordText2");
+        AddressSecondNameText2 = (String) resultObj.get("AddressSecondNameText2");
+        AddressLastNameText2 = (String) resultObj.get("AddressLastNameText2");
+        AddressText2 = (String) resultObj.get("AddressText2");
+        CityText2 = (String) resultObj.get("CityText2");
+        PostCodeText2 = (String) resultObj.get("PostCodeText2");
+        MobileNumberText2 = (String) resultObj.get("MobileNumberText2");
+
 
 
     }
 
 @Test (priority = 1,alwaysRun = true)
-public void UserCanRegisteration() throws InterruptedException, IOException, ParseException
+public void FirstUserCanRegister() throws  IOException, ParseException
 {
     getDataForTesting();
 
-    logObj = new LoginPage(driver);
-    logObj.LoginPage(userName,password);
-
-    basicObj =new BasicInfo(driver);
-    basicObj.basicInfoPage(sequenceNumber);
-
-   vecObj = new VechileInfoPage(driver);
-   vecObj.VechileInfoPage(vechiclNumber);
-
+    creaAcounttObj = new CreateAccount(driver);
+    creaAcounttObj.CreateNewAccount(UserEmail);
+    creaAcounttObj.PersonalInfo(FirstNameText,lastnameText,EmailText,PasswordText,AddressFirstNameText,AddressLastNameText,AddressText,CityText,PostCodeText,MobileNumberText);
 
  }
 
-//    @Test (priority = 2 )
-//    public void UserCanRegisteration2() throws InterruptedException, IOException, ParseException
-//    {
-//        getDataForTesting();
-//
-//        logObj = new LoginPage(driver);
-//        logObj.LoginPage(userName2,password2);
-//
-//        basicObj =new BasicInfo(driver);
-//        basicObj.basicInfoPage(sequenceNumber2);
-//
-//    }
+    @Test (priority = 2)
+    public void SecondUserCanRegister() throws IOException, ParseException
+    {
+        getDataForTesting();
+
+        creaAcounttObj = new CreateAccount(driver);
+        creaAcounttObj.CreateNewAccount(UserEmail2);
+        creaAcounttObj.PersonalInfo(SecondNameText2,lastnameText2,EmailText2,PasswordText2,AddressSecondNameText2,AddressLastNameText2,AddressText2,CityText2,PostCodeText2,MobileNumberText2);
+
+    }
+
+
 
 }
+

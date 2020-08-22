@@ -16,7 +16,7 @@ public class ActionUtils {
 
     {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 60);
+            WebDriverWait wait = new WebDriverWait(driver, 30);
             WebElement el = wait.until(ExpectedConditions.visibilityOf(element));
             //element = wait.until(ExpectedConditions.visibilityOf(element));
             while (!el.isDisplayed()) {
@@ -38,7 +38,7 @@ public class ActionUtils {
         if (text != null || text.equalsIgnoreCase(""))
         {
 
-            WebDriverWait wait = new WebDriverWait(driver, 60);
+            WebDriverWait wait = new WebDriverWait(driver, 30);
             WebElement el = wait.until(ExpectedConditions.visibilityOf(element));
             try {
                 while (!el.isDisplayed()) {
@@ -62,7 +62,7 @@ public class ActionUtils {
     public static void clickOnElementUsingJavaScript(WebDriver driver, WebElement element)
 
     {
-        WebDriverWait wait = new WebDriverWait(driver, 60);
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         WebElement el = wait.until(ExpectedConditions.visibilityOf(element));
         try {
             while (!el.isDisplayed()) {

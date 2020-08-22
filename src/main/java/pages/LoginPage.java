@@ -35,7 +35,7 @@ public class LoginPage extends PageBase
     WebElement GetQoutes;
 
 
-    public void LoginPage(String mail , String pass ) throws InterruptedException
+    public void LoginPage(String mail , String pass )
     {
 
         ActionUtils.clickOnElement(driver,SignUpHomePage);

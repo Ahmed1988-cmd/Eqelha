@@ -6,9 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
-import utils.ActionUtils;
-
-import javax.swing.*;
+import utilities.ActionUtils;
 
 public class CreateAccount extends PageBase
 {
@@ -62,6 +60,22 @@ public class CreateAccount extends PageBase
     WebElement RegisterButton;
 
 
+    //Contact Us
+
+    @FindBy(id = "contact-link")
+    WebElement ContactUsButton;
+    @FindBy(id = "id_contact")
+    WebElement SubjectHeadingDrpDown;
+    @FindBy(id = "message")
+    WebElement MessageText;
+    @FindBy(id = "fileUpload")
+    WebElement fileUpload;
+    @FindBy(id = "submitMessage")
+    WebElement SendButton;
+
+    @FindBy(xpath = "/html/body/div[1]/div[2]/div/div[3]/div/p")
+    public WebElement SucceseMessage;
+
 
     public void CreateNewAccount(String mail)
     {
@@ -69,13 +83,10 @@ public class CreateAccount extends PageBase
         ActionUtils.fillElement(driver, EmailAddressText, mail);
         ActionUtils.clickOnElement(driver, CreateAccountButton);
 
-
     }
 
 
-    public void PersonalInfo(String FirstName,String LastName,String Email,String Pass , String AddressFirstName ,String AddressLastName,String Address,String City,String PostCode,String MobileNumber)
-
-    {
+    public void PersonalInfo(String FirstName,String LastName,String Email,String Pass , String AddressFirstName ,String AddressLastName,String Address,String City,String PostCode,String MobileNumber,String message ) throws InterruptedException {
         boolean result = ActionUtils.verifyPageOpened(driver,MrCheckBox,30);
 
         if (result)
@@ -94,7 +105,13 @@ public class CreateAccount extends PageBase
             ActionUtils.fillElement(driver,PostCodeText,PostCode);
             ActionUtils.fillElement(driver,MobileNumberText,MobileNumber);
             ActionUtils.clickOnElement(driver,RegisterButton);
-
+            ActionUtils.clickOnElement(driver,ContactUsButton);
+            select = new Select(SubjectHeadingDrpDown);
+            select.selectByVisibleText("Customer service");
+            ActionUtils.fillElement(driver,MessageText,message);
+            ScrollDown();
+            fileUpload.sendKeys("C:\\Users\\ZaZa\\Desktop\\Ahmed-Hafez-Loutfy.pdf");
+            ActionUtils.clickOnElement(driver,SendButton);
 
         }
 
@@ -102,7 +119,7 @@ public class CreateAccount extends PageBase
         {
             System.out.println("Not Found");
             Assert.assertFalse(result);
-        }
+         }
     }
 
 

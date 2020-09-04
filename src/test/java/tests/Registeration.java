@@ -3,15 +3,14 @@
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CreateAccount;
-import pages.GetQuotesPage;
-import pages.LoginPage;
-import pages.VechileInfoPage;
+
 import java.io.FileReader;
 import java.io.IOException;
 
-public class Registeration extends testBase
+public class Registeration extends TestBase
 
 {
 
@@ -30,9 +29,11 @@ public class Registeration extends testBase
     private static String CityText;
     private static String PostCodeText;
     private static String MobileNumberText;
+    private static String MessageText ;
 
 
-                                                     //Second User
+
+                                                         //Second User
 
 
     private static String UserEmail2;
@@ -46,7 +47,6 @@ public class Registeration extends testBase
     private static String CityText2;
     private static String PostCodeText2;
     private static String MobileNumberText2;
-
 
 
 
@@ -79,6 +79,7 @@ public class Registeration extends testBase
         CityText = (String) resultObj.get("CityText");
         PostCodeText = (String) resultObj.get("PostCodeText");
         MobileNumberText = (String) resultObj.get("MobileNumberText");
+        MessageText = (String) resultObj.get("MessageText");
 
 
 
@@ -96,28 +97,26 @@ public class Registeration extends testBase
         MobileNumberText2 = (String) resultObj.get("MobileNumberText2");
 
 
-
     }
 
 @Test (priority = 1,alwaysRun = true)
-public void FirstUserCanRegister() throws  IOException, ParseException
-{
+public void FirstUserCanRegister() throws IOException, ParseException, InterruptedException {
     getDataForTesting();
 
     creaAcounttObj = new CreateAccount(driver);
     creaAcounttObj.CreateNewAccount(UserEmail);
-    creaAcounttObj.PersonalInfo(FirstNameText,lastnameText,EmailText,PasswordText,AddressFirstNameText,AddressLastNameText,AddressText,CityText,PostCodeText,MobileNumberText);
+    creaAcounttObj.PersonalInfo(FirstNameText,lastnameText,EmailText,PasswordText,AddressFirstNameText,AddressLastNameText,AddressText,CityText,PostCodeText,MobileNumberText,MessageText);
+    Assert.assertTrue(creaAcounttObj.SucceseMessage.getText().contains("Your message has been successfully sent to our team."));
 
  }
 
     @Test (priority = 2)
-    public void SecondUserCanRegister() throws IOException, ParseException
-    {
+    public void SecondUserCanRegister() throws IOException, ParseException, InterruptedException {
         getDataForTesting();
 
         creaAcounttObj = new CreateAccount(driver);
         creaAcounttObj.CreateNewAccount(UserEmail2);
-        creaAcounttObj.PersonalInfo(SecondNameText2,lastnameText2,EmailText2,PasswordText2,AddressSecondNameText2,AddressLastNameText2,AddressText2,CityText2,PostCodeText2,MobileNumberText2);
+        creaAcounttObj.PersonalInfo(SecondNameText2,lastnameText2,EmailText2,PasswordText2,AddressSecondNameText2,AddressLastNameText2,AddressText2,CityText2,PostCodeText2,MobileNumberText2,MessageText);
 
     }
 

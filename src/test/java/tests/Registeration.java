@@ -31,10 +31,7 @@ public class Registeration extends TestBase
     private static String MobileNumberText;
     private static String MessageText ;
 
-
-
                                                          //Second User
-
 
     private static String UserEmail2;
     private static String SecondNameText2;
